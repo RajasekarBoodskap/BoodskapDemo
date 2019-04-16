@@ -1,0 +1,249 @@
+
+
+
+<div class="container">
+            
+     <div class="col-xl-12">
+                
+            <h5>Total OrganizationUserList:
+                    <div class="btn-group" style="float: right">
+                        <!-- <a class="btn btn-outline-secondary btn-sm" onclick="onModal()"><i class="fa fa-plus"></i> <span class="hidden-xs">Add Record</span></a> -->
+                        <a class="btn btn-outline-secondary btn-sm" data-click="panel-reload" onclick="loadorguserList()"><i class="fa fa-undo"></i> Refresh</a>
+                    </div>
+                </h5>
+    
+     <hr>
+    
+         <table class="table table-striped table-bordered" id="orguser">
+               
+            </table>
+     </div>
+       
+</div>
+ <div id="Enterdetails" class="modal fade" aria-hidden="true" style="display: none;">
+   <div class="modal-dialog">
+       <div class="modal-content">
+            <form action="javascript:void(0)">
+               <div class="modal-header">						
+                   <h4 class="modal-title">Enter details</h4>
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+               </div>
+               <div class="modal-body">					
+                       <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label class="inputLabel">Organization Id</label>
+                                       <input class="form-control input-sm" placeholder="" type="text" id="orgi" required="required">
+                                   </div>
+                               </div>
+                               <div class="col-md-6">
+                                       <div class="form-group">
+                                           <label class="inputLabel">User Id</label>
+                                           <input class="form-control input-sm" placeholder="" type="text" id="useri" required="required"> 
+                                       </div>
+                                   </div>
+                           </div>
+                           <div class="row">
+                                   <div class="col-md-6">
+                                           <div class="form-group">
+                                               <label class="inputLabel">User Name</label>
+                                               <input class="form-control input-sm" placeholder="" type="text" id="usern" required="required">
+                                           </div>
+                                       </div>
+                                  
+                                       <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel">Address</label> 
+                                            <input class="form-control input-sm" placeholder="" type="text" id="usera" required="required">
+                                        </div>
+                                    </div>
+                               </div>		
+                               <div class="row">
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                            <label class="inputLabel">Phone Number</label>
+                                            <input class="form-control input-sm" placeholder="" type="text" id="userp" required="required"> 
+                                        </div> 
+                                       </div> 
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                        <label class="inputLabel">Email Id</label>
+                                          <input class="form-control input-sm" placeholder="" type="text" id="usere" required="required"> 
+                                            </div> 
+                                            </div> 
+                                              
+                                </div>					
+               </div>
+               <div class="modal-footer">
+                   <input type="button" class="btn btn-warning" data-dismiss="modal" value="Cancel">
+                    <button type="submit" class="btn btn-success"> save</button> 
+               </div>
+           </form>
+       </div>
+   </div>
+</div>
+
+<div id="Roledetails" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="javascript:void(0)">
+                <div class="modal-header">
+                    <h4 class="modal-title">Enter details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="inputLabel">User Id</label>
+                                <input class="form-control input-sm" placeholder="" type="text" id="useri2">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="inputLabel">User Name</label>
+                                <input class="form-control input-sm" placeholder="" type="text" id="usern2">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>User Roles</label>
+                                <div class="container" style="border:1px solid #969095; height: 40px; overflow-y: scroll;" id="userr">
+                                    <input type="checkbox" name="userRoles"   value="CEO"  > CEO <br />
+                                    <input type="checkbox" name="userRoles"   value="ManagingDirector" > ManagingDirector<br />
+                                    <input type="checkbox" name="userRoles"   value="UserAdmin" > UserAdmin <br />
+                                    <input type="checkbox" name="userRoles"   value="JavaDeveloper" > JavaDeveloper <br />
+                                    <input type="checkbox" name="userRoles"   value="Teamleader" > TeamLeader<br />
+                                    <input type="checkbox" name="userRoles"   value="Architecture" > Architecture <br />
+                                    <input type="checkbox" name="userRoles"   value="SoftwareArchitect" > SoftwareArchitect <br />
+                                    <input type="checkbox" name="userRoles"   value="ITAnalyst"> ITAnalyst <br />
+                                    <input type="checkbox" name="userRoles"   value="SecuritySpecialist" > SecuritySpecialist <br />
+                                    <input type="checkbox" name="userRoles"   value="SoftwareEngineer" > SoftwareEngineer <br />
+                                    <input type="checkbox" name="userRoles"   value="SeniorProgrammerAnalyst" > SeniorProgrammerAnalyst <br />
+                                    <input type="checkbox" name="userRoles"   value=" SystemEngineer" > SystemEngineer <br />
+                                    <input type="checkbox" name="userRoles"   value="TechnicalSupportEngineer" > TechnicalSupportEngineer <br />
+                                    <input type="checkbox" name="userRoles"   value="NetworkAdministrator" > NetworkAdministrator <br />
+                                    <input type="checkbox" name="userRoles"   value="NetworkEngineer" > NetworkEngineer <br />
+                                    <input type="checkbox" name="userRoles"   value="SeniorNetworkEngineer" > SeniorNetworkEngineer<br />
+                                    <input type="checkbox" name="userRoles"   value="NetworkArchitect" > NetworkArchitect <br />
+                                    <input type="checkbox" name="userRoles"   value=" ITSupportSpecialist" > ITSupportSpecialist <br />
+                                    <input type="checkbox" name="userRoles"   value="SeniorSupportSpecialist"> SeniorSupportSpecialist <br />
+                                    <input type="checkbox" name="userRoles"   value="SystemsDesigner" > SystemsDesigner <br />
+                                    <input type="checkbox" name="userRoles"   value="SeniorWebAdministrator" >SeniorWebAdministrator <br />
+                                    <input type="checkbox" name="userRoles"   value="ProgrammerAnalyst" > ProgrammerAnalyst <br />
+                                    <input type="checkbox" name="userRoles"   value=".NETDeveloper" > .NETDeveloper <br />
+                                    <input type="checkbox" name="userRoles"   value="ApplicationsEngineer" >ApplicationsEngineer <br />
+                                    <input type="checkbox" name="userRoles"   value="ComputerProgrammer" > ComputerProgrammer <br />
+                                    <input type="checkbox" name="userRoles"   value="SeniorSystemArchitect" > SeniorSystemArchitect <br />
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-warning" data-dismiss="modal" value="Cancel">
+                    <button type="submit" class="btn btn-success"> save</button>
+                    <button type="submit" class="btn btn-primary"><a class="dropdown-item" href="/userrolelist"> <i class="fa fa-check"></i> Organization UserRoles</a></button>
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="Editdetails" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+             <form action="javascript:void(0)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Edit details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                </div>
+                <div class="modal-body">					
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="inputLabel">Org Id</label>
+                                <input class="form-control input-sm" placeholder="" type="text" id="orgi1">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="inputLabel">User Id</label>
+                                    <input class="form-control input-sm" placeholder="" type="text" id="useri1"> 
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="inputLabel">UserName</label>
+                                        <input class="form-control input-sm" placeholder="" type="text" id="usern1">
+                                    </div>
+                                </div>
+                           
+                                <div class="col-md-6">
+                                 <div class="form-group">
+                                     <label class="inputLabel">Address</label> 
+                                     <input class="form-control input-sm" placeholder="" type="text" id="usera1">
+                                 </div>
+                             </div>
+                        </div>		
+                        <div class="row">
+                         <div class="col-md-6">
+                         <div class="form-group">
+                                     <label class="inputLabel">Phone Number</label>
+                                     <input class="form-control input-sm" placeholder="" type="text" id="userp1"> 
+                                 </div> 
+                                </div> 
+                         <div class="col-md-6">
+                         <div class="form-group">
+                                 <label class="inputLabel">Email Id</label>
+                                   <input class="form-control input-sm" placeholder="" type="text" id="usere1"> 
+                                     </div> 
+                                     </div> 
+                                       
+                         </div>					
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-warning" data-dismiss="modal" value="Cancel">
+                     <button type="submit" class="btn btn-primary" id="offical_edit"> save</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+ <div id="Deletedetails" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="javascript:void(0)">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete details</h4>
+                    <button class="close" type="btn" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                   <p>Are you sure delete this Record?</p>
+               </div>
+               <div class="modal-footer">
+                <input type="button" class="btn btn-warning" data-dismiss="modal" value="Cancel">
+                <input type="submit" class="btn btn-danger" value="delete">
+               </div>
+            </form>
+        </div>
+    </div>
+ </div>
+  
+
+<script>
+     
+ </script>
+     
+       <script src="/js/orgmanagementuser.js"></script>
+   
+

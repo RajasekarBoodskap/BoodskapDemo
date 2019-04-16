@@ -1,0 +1,191 @@
+ <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+
+<div class="container">
+    <!-- <div class="text-right">
+    <button class="btn btn-warning" onclick="openModal()">Create list
+    </button>
+</div>
+<br>
+ <table class="table table-bordered table-striped" id="tablelist">
+        
+        
+       </table>  -->
+
+
+
+       <div class="col-xl-12">
+            <!-- <h5>Total Records: <span class="totalRecords" style="font-weight: bold">0</span> -->
+
+            <h5>Total Records:
+                <div class="btn-group" style="float: right">
+                    <a class="btn btn-outline-secondary btn-sm" onclick="openModal()"><i class="fa fa-plus"></i> <span class="hidden-xs">Add Record</span></a>
+                    <a class="btn btn-outline-secondary btn-sm" data-click="panel-reload" onclick="loaddevicesList()"><i class="fa fa-undo"></i> Refresh</a>
+                </div>
+            </h5>
+
+
+
+
+            <hr>
+
+            <table class="table table-striped table-bordered" id="tablelist">
+           
+                </table>
+        </div>
+    </div> 
+    <!-- <button class="btn btn-warning" onclick="openModal()">Create list
+    </button>
+</div>  -->
+    <div id="Enterdetails" class="modal fade" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="javascript:void(0)">
+                    <div class="modal-header">						
+                        <h4 class="modal-title">Enter details</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">					
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel">Collage Name</label>
+                                            <input class="form-control input-sm" placeholder="" type="text" id="coln" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="inputLabel">Collage place</label>
+                                                <input class="form-control input-sm" placeholder="" type="text" id="colp" required="required">
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="inputLabel">Collage position</label>
+                                                    <input class="form-control input-sm" placeholder="" type="integer" id="coli" required="number">
+                                                </div>
+                                            </div>
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="inputLabel">Collage branches</label>
+                                                    <input class="form-control input-sm" placeholder="" type="text" id="colb" required="number">
+                                                </div>
+                                            </div>
+                                    </div>					
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-warning" data-dismiss="modal" value="Cancel">
+                        <button type="submit" class="btn btn-success">save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+</div>
+<div id="Editdetails" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="javascript:void(0)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Edit details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">					
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="inputLabel">Collage Name</label>
+                                        <input class="form-control input-sm" placeholder="" type="text" id="coln1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel">Collage place</label>
+                                            <input class="form-control input-sm" placeholder="" type="text" id="colp1">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="inputLabel">Collage position</label>
+                                                <input class="form-control input-sm" placeholder="" type="integer" id="coli1">
+                                            </div>
+                                        </div>
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="inputLabel">Collage branches</label>
+                                                <input class="form-control input-sm" placeholder="" type="text" id="colb1">
+                                            </div>
+                                        </div>
+                                </div>					
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-warning" data-dismiss="modal" value="Cancel">
+                    <button type="submit" class="btn btn-primary" id="device_edit">save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+function openModal(){
+    // $('#Enterdetails').modal('show');
+    $("#Enterdetails form")[0].reset();
+    $("#Enterdetails").modal('show');
+    $("#Enterdetails form").attr('onsubmit', 'devicedetails()');
+}
+function devicedetails(){
+  
+    
+    // console.log("colname is "+ cn);
+    // console.log("colplace is "+ cp);
+    // console.log("colposition is "+ ci);
+    // console.log("colbranches is "+ cb);
+   
+   var cn=$('#coln').val();
+    var cp= $('#colp').val();
+
+    var ci=$('#coli').val();
+    var cb= $('#colb').val();
+
+
+    var details={
+        colname:cn,
+        colplace:cp,
+        colposition:ci,
+        colbranches:cb
+        }
+
+// -----office details----
+
+     var recordId=3000;
+     insertRecord(recordId, details, function(status, data){
+        if (status) {
+            successMsg('Record Created Successfully');
+            $("#Enterdetails").modal('hide');
+            loaddevicesList();
+            // $("#addRecord").modal('hide');
+        } else {
+            errorMsg('Error in Creating Record')
+        }
+        // $(".btnSubmit").removeAttr('disabled');
+})
+
+        console.log(details)
+
+
+
+}
+
+
+</script>
+ <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+       <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<script src="/js/deviceuser.js"></script>

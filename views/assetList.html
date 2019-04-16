@@ -1,0 +1,105 @@
+<div class="container">
+    <!-- <table class="table table-bordered">
+        
+        
+        <thead>
+            <tr>
+                <th> S.no</th>
+                    <th>Asset Id</th>
+                    <th>Asset Name</th>
+                    <th>Description</th>
+                
+            </tr>
+        </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+       
+    </table> -->
+
+    <button class="btn btn-success" onclick="openModal()">Enter details</button>
+        
+
+</div>
+
+<div id="Enterdetails" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="javascript:void(0)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Enter details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">					
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="inputLabel">Hotel name</label>
+                                        <input class="form-control input-sm" placeholder="" type="text" id="name" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel">Address</label>
+                                            <input class="form-control input-sm" placeholder="" type="text" id="address" required="required">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="inputLabel">Phone</label>
+                                                <input class="form-control input-sm" placeholder="" type="text" id="number" required="number">
+                                            </div>
+                                        </div>
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="inputLabel">roomno</label>
+                                                <input class="form-control input-sm" placeholder="" type="text" id="room" required="number">
+                                            </div>
+                                        </div>
+                                </div>					
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function openModal(){
+      $("#Enterdetails form")[0].reset();
+      $("#Enterdetails").modal('show');
+      $("#Enterdetails form").attr('onsubmit', 'me()');
+      }
+   
+function me(){
+    console.log($('#name').val())
+    console.log($('#address').val())
+    console.log($('#number').val())
+    console.log($('#room').val())
+}
+
+
+</script>
+
+<!-- <script src="/js/assetList.js"></script> -->
